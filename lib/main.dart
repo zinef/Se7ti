@@ -1,6 +1,6 @@
+import 'package:auth_and_sign_in/Classes/Welcome.dart';
 import 'package:flutter/material.dart';
 
-import 'Classes/SignIn.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: WelcomePage(),
       
     );
   }

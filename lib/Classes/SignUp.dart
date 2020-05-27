@@ -1,37 +1,32 @@
-
-import 'package:auth_and_sign_in/Classes/home.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
+
   String _email,_password;
   final GlobalKey<FormState> _formKey= GlobalKey<FormState>();
 
-  //une méthode async pour le login
-  Future<void> signIn() async {
+  Future<void> signUp() async {
     //validation du fomulaire
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
-      //acceder à firebase
+      //ajouter le compte à la base de données
       try{
-        AuthResult result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password); 
-        //connection , si les données ne sont pas correctes , elle va lever une exception
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> Home(user: result.user,)));
+        AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password); 
+        result.user.sendEmailVerification();
+        Navigator.of(context).pop();
       }catch(e){
         print(e.message);
       }
     }
-    
   }
-
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       appBar: AppBar(
         title: Text('Sign In'),
@@ -56,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
             TextFormField(
               validator: (input){
                 if(input.isEmpty){
-                  return 'Veuillez introduire un Mot de passe ';
+                  return 'Veuillez introduire votre Mot de passe ';
                 }
                 return null;
               },
@@ -67,8 +62,8 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
             RaisedButton(
-              onPressed: signIn,
-             child: Text('Sign in'),
+              onPressed: signUp,
+             child: Text('Sign up'),
             ),
           ],
         ),
