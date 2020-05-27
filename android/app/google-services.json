@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "187125216083",
+    "firebase_url": "https://covapp-a5f2a.firebaseio.com",
+    "project_id": "covapp-a5f2a",
+    "storage_bucket": "covapp-a5f2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187125216083:android:8c047c19f9b4c811cfe7a6",
+        "android_client_info": {
+          "package_name": "com.example.auth_and_sign_in"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187125216083-0d7gmu9a13ricn0c4qmoelnv7ot2q361.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwTqFqY_LymKHFu-8xNgPvE92NldgF8Ks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187125216083-0d7gmu9a13ricn0c4qmoelnv7ot2q361.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
