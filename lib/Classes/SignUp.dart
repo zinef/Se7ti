@@ -29,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign In'),
+        title: Text('Sign Up'),
       ),
       body: Form(
         key: _formKey,
