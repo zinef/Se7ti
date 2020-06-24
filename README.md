@@ -1,6 +1,6 @@
-# auth_and_sign_in
+# se7ti
 
-A new Flutter project.
+1CS project.
 
 ## Getting Started
 
