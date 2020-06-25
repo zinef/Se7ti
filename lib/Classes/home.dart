@@ -1,3 +1,4 @@
+import 'package:auth_and_sign_in/acceuil_screens/acceuil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,8 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(title: Text('Home page')),
       body: Center(
-        child:Text('Welcome to you ${widget.user.email}'),
+        child: AcceuilScreen(),
+        //Text('Welcome to you ${widget.user.email}'),
       ),
     );
   }
