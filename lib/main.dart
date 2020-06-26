@@ -1,4 +1,5 @@
 import 'package:auth_and_sign_in/Classes/Welcome.dart';
+import 'package:auth_and_sign_in/screens/Formulaire.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,4 +24,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
+final Formulaire form=new Formulaire(null,null,null,null);
+final List<String> wilaya = ["Adrar","Chlef","Laghouat","Oum bouaghi","Alger","Oran","Blida","Constantine","Sétif","Tizi Ouzou"] ;
+String selectedItem = wilaya[0];
