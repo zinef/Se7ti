@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -7,24 +8,28 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
-  String _email,_password;
-  final GlobalKey<FormState> _formKey= GlobalKey<FormState>();
+  String _email, _password;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Future<void> signUp() async {
     //validation du fomulaire
-    if(_formKey.currentState.validate()){
+    if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       //ajouter le compte à la base de données
-      try{
-        AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password); 
+      try {
+        AuthResult result = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(email: _email, password: _password);
         result.user.sendEmailVerification();
+        await Firestore.instance
+            .collection('users')
+            .add({'isAdmin': false, 'email': _email});
         Navigator.of(context).pop();
-      }catch(e){
+      } catch (e) {
         print(e.message);
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,29 +38,28 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
       body: Form(
         key: _formKey,
-        child:Column(
+        child: Column(
           children: <Widget>[
             TextFormField(
-              validator: (input){
-                if(input.isEmpty){
+              validator: (input) {
+                if (input.isEmpty) {
                   return 'Veuillez introduire votre Email';
                 }
                 return null;
               },
-              onSaved: (input)=> _email=input,
+              onSaved: (input) => _email = input,
               decoration: InputDecoration(
                 labelText: 'Email',
-
               ),
             ),
             TextFormField(
-              validator: (input){
-                if(input.isEmpty){
+              validator: (input) {
+                if (input.isEmpty) {
                   return 'Veuillez introduire votre Mot de passe ';
                 }
                 return null;
               },
-              onSaved: (input)=> _password=input,
+              onSaved: (input) => _password = input,
               decoration: InputDecoration(
                 labelText: 'Password',
               ),
@@ -63,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             RaisedButton(
               onPressed: signUp,
-             child: Text('Sign up'),
+              child: Text('Sign up'),
             ),
           ],
         ),

@@ -15,6 +15,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Home page')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add, 
+                    color: Colors.black),
+        backgroundColor: Colors.white,
+        ),
       body: Center(
         child: AcceuilScreen(),
         //Text('Welcome to you ${widget.user.email}'),

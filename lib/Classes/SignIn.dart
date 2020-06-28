@@ -1,6 +1,8 @@
 import 'package:auth_and_sign_in/Classes/home.dart';
+import 'package:auth_and_sign_in/Classes/result_formulaires.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -16,17 +18,39 @@ class _LoginPageState extends State<LoginPage> {
     //validation du fomulaire
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
+      Widget widget;
       //acceder à firebase
       try {
         AuthResult result = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
+        var data;
+        await Firestore.instance
+            .collection('users')
+            .where('email', isEqualTo: _email)
+            .getDocuments()
+            .then((value) {
+          value.documents.forEach((result) {
+            data = result.data;
+          });
+        });
+        if (data['isAdmin']) {
+          widget = Scaffold(
+            appBar: AppBar(title: Text('Welcome Admin')),
+            body: ResultFormulaire(),
+           floatingActionButton: Visibility(
+          visible: true,
+            child: FloatingActionButton(
+              backgroundColor: Colors.white,
+                child: Icon(Icons.add, color: Colors.black,), onPressed: () {}))
+          );
+        } else {
+          widget = Home(
+            user: result.user,
+          );
+        }
         //connection , si les données ne sont pas correctes , elle va lever une exception
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Home(
-                      user: result.user,
-                    )));
+            context, MaterialPageRoute(builder: (context) => widget));
       } catch (e) {
         print(e.message);
       }
@@ -90,7 +114,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 50.0, right: 50.0, top: 10.0),
+                    padding: const EdgeInsets.only(
+                        left: 50.0, right: 50.0, top: 10.0),
                     child: FlatButton(
                       onPressed: signIn,
                       child: Text("Sign In"),
