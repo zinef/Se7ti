@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Learning\\Se7ti\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
+            "outputFile": "D:\\FlutterProjects\\Se7ti\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abdel adel\\.gradle\\caches\\transforms-2\\files-2.1\\08c34bf5681f19c0345eb3877ee5f844\\play-services-base-17.1.0\\res\\values-nb\\values.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Learning\\Se7ti\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-si\\values-si.xml",
+            "outputFile": "D:\\FlutterProjects\\Se7ti\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-si\\values-si.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abdel adel\\.gradle\\caches\\transforms-2\\files-2.1\\bdb1bbeb5abacb41dc280a424feef4f1\\jetified-play-services-basement-17.0.0\\res\\values-si\\values.xml",

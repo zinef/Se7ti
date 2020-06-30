@@ -65,7 +65,7 @@ class Menage extends StatelessWidget{
                          color: Color(0xFFFAFAFA), 
                          textColor: Colors.black38,
                          child: new Text("Non"), 
-                         onPressed: (){ form.menage="Non"; Navigator.push(context, MaterialPageRoute(builder: (context)=>Merci()),);},
+                         onPressed: (){ form.menage="Non"; Navigator.push(context, MaterialPageRoute(builder: (context)=>Merci(form: form)),);},
                          splashColor: Colors.redAccent,
                          shape: RoundedRectangleBorder(side: BorderSide(
                          color: Colors.blue,
@@ -96,7 +96,7 @@ class Menage extends StatelessWidget{
                            color: Color(0xFFDD208A), 
                            textColor: Colors.white, 
                            child: new Text("Suivant "), 
-                           onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context)=>Merci()),);},
+                           onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context)=>Merci(form: form)),);},
                            splashColor: Colors.redAccent,
                            shape: RoundedRectangleBorder(side: BorderSide(
                         color: Color(0xFFDD208A),

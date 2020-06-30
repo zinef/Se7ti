@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Learning\\Se7ti\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "D:\\FlutterProjects\\Se7ti\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abdel adel\\.gradle\\caches\\transforms-2\\files-2.1\\610bd0f7a2df62baafa5cf5955c71ce4\\core-1.1.0\\res\\values-v21\\values-v21.xml",
